@@ -130,6 +130,10 @@
         app:layout_constraintStart_toEndOf="@+id/imageTime"
         app:layout_constraintTop_toBottomOf="@+id/reminderDate" />
 
+
+
+
+
     <Button
         android:id="@+id/reminderAdd"
         android:layout_width="wrap_content"
@@ -138,6 +142,7 @@
         android:layout_marginTop="223dp"
         android:text="add"
         app:layout_constraintStart_toStartOf="parent"
+        android:elevation="4dp"
         app:layout_constraintTop_toBottomOf="@+id/imageTime" />
 
     <Button
@@ -149,7 +154,81 @@
         android:layout_marginEnd="69dp"
         android:onClick="reminderExit"
         android:text="Cancel"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reminderAdd"
+        app:layout_constraintTop_toBottomOf="@+id/reminderTime" />
+
+    <RadioGroup
+        android:id="@+id/priorityRG"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="19dp"
+        android:onClick="rbClicked"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/reminderCancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priorityTv">
+
+        <RadioButton
+            android:id="@+id/rbOne"
+            android:layout_width="105dp"
+            android:layout_height="52dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="rbClicked"
+            android:padding="16dp"
+            android:text="High"
+            android:textAlignment="textStart"
+            android:textColor="@drawable/text_color" />
+
+        <RadioButton
+            android:id="@+id/rbTwo"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="rbClicked"
+            android:padding="16dp"
+            android:text="Mehh"
+            android:textColor="@drawable/text_color" />
+
+        <RadioButton
+            android:id="@+id/rbThree"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:onClick="rbClicked"
+            android:padding="16dp"
+            android:text="Ehhh"
+            android:textColor="@drawable/text_color" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/priorityTv"
+        android:layout_width="322dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="45dp"
+        android:hint="Priority"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reminderTime" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,16 +2,15 @@ package com.example.remapp
 
 import android.app.*
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.DatePicker
-import android.widget.TextView
-import android.widget.TimePicker
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_form.*
+import kotlinx.android.synthetic.main.custom_event_view.*
 
 
 class FormActivity : AppCompatActivity() , DatePickerDialog.OnDateSetListener ,TimePickerDialog.OnTimeSetListener {
@@ -30,6 +29,37 @@ class FormActivity : AppCompatActivity() , DatePickerDialog.OnDateSetListener ,T
             //Toast.makeText(this,"reminder Added" , Toast.LENGTH_LONG).show()
             dialogBox()
         }
+
+        when(priorityRG.checkedRadioButtonId){
+            R.id.rbOne -> {
+                priorityTv.text = "High"
+                cLayout?.setBackgroundColor(Color.RED)
+
+            }
+            R.id.rbTwo -> {
+                priorityTv.text = "MEhhh"
+                cLayout?.setBackgroundColor(Color.BLUE)
+            }
+            R.id.rbThree -> {
+                priorityTv.text = "Ehhh"
+                cLayout?.setBackgroundColor(Color.GREEN)
+            }
+            else -> {
+                priorityTv.text = "enter"
+                cLayout?.setBackgroundColor(Color.WHITE)
+            }
+        }
+    }
+
+    fun rbClicked(view: View) {
+
+        val rBox = view as RadioButton
+        var cityName = rBox.text.toString()
+        if(rBox.isChecked){
+            Toast.makeText(this,"${cityName}Radio Button click" , Toast.LENGTH_LONG).show()
+            priorityTv.text = cityName
+        }
+
     }
 
     private fun dialogBox() {
@@ -121,8 +151,6 @@ class FormActivity : AppCompatActivity() , DatePickerDialog.OnDateSetListener ,T
         val time = "$hourOfDay : $minute "
         timeTImeView.text = time
     }
-
-
 }
 
 
